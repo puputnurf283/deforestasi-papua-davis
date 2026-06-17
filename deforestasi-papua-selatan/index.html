@@ -1,0 +1,763 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Laporan Eksekutif: Deforestasi Papua Selatan</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Playfair+Display:ital,wght@0,600;0,700;1,500&display=swap" rel="stylesheet">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #0d1a11; /* Warna hijau sangat gelap */
+            color: #ffffff;
+            overflow-x: hidden;
+        }
+
+        /* === HERO SECTION === */
+        .hero {
+            position: relative;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 6rem 10% 4rem 10%;
+            background: linear-gradient(
+                to bottom, 
+                rgba(10, 25, 15, 0.4) 0%, 
+                rgba(10, 25, 15, 0.9) 100%
+            ), 
+            url('assets/images/papua-deforestation.jpg') center/cover no-repeat;
+            text-align: center;
+        }
+
+        /* Navbar Sederhana di Hero */
+        .nav-header {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 2rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 10;
+        }
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            color: #d4edbc; /* Hijau pucat ala daun */
+        }
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            margin-left: 2rem;
+            font-size: 0.9rem;
+            opacity: 0.8;
+            transition: opacity 0.3s;
+        }
+        .nav-links a:hover { opacity: 1; }
+
+        /* Typography Hero */
+        .hero-content {
+            max-width: 900px;
+            z-index: 2;
+            animation: fadeUp 1.2s ease-out forwards;
+            margin-top: 2rem;
+        }
+        .hero-title {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(3rem, 6vw, 5.5rem);
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+            color: #ffffff;
+        }
+        .hero-title span {
+            color: #a8e063; /* Hijau cerah ala Leaflytic */
+            font-style: italic;
+        }
+        .hero-subtitle {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            color: #e0e0e0;
+            margin-bottom: 3rem;
+            font-weight: 300;
+            max-width: 700px;
+            margin-inline: auto;
+        }
+
+        /* Glassmorphism Data Cards (Mirip Leaflytic di bawah) */
+        .data-cards {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-bottom: 3rem;
+        }
+        .card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            padding: 1.5rem 2rem;
+            border-radius: 16px;
+            text-align: left;
+            min-width: 220px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s ease;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+            background: rgba(255, 255, 255, 0.08);
+        }
+        .card-label {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #a8e063;
+            margin-bottom: 0.5rem;
+        }
+        .card-value {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 0.2rem;
+        }
+        .card-unit {
+            font-size: 1rem;
+            font-family: 'Inter', sans-serif;
+            font-weight: 400;
+        }
+
+        /* CTA Button */
+        .cta-button {
+            display: inline-flex;
+            align-items: center;
+            padding: 1rem 2.5rem;
+            background-color: #ffffff;
+            color: #0d1a11;
+            text-decoration: none;
+            font-weight: 600;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: none;
+        }
+        .cta-button:hover {
+            background-color: #a8e063;
+            transform: scale(1.05);
+        }
+        .cta-button svg {
+            margin-left: 10px;
+            width: 20px;
+            transition: transform 0.3s ease;
+        }
+        .cta-button:hover svg {
+            transform: translateX(5px);
+        }
+
+        /* Animations */
+        @keyframes fadeUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .content-section {
+            padding: 8rem 8%;
+            background: radial-gradient(circle at 80% 20%, #0c1f13 0%, #050b07 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Efek dekoratif garis vertikal tipis ala BridgeAI di pinggiran halaman */
+        .content-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 5%;
+            width: 1px;
+            height: 100%;
+            background: linear-gradient(to bottom, rgba(168,224,99,0.2), transparent);
+        }
+
+        .section-container {
+            width: 100%;
+            max-width: 1304px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+        }
+
+        /* Header susunan vertikal */
+        .story-header {
+            margin-bottom: 3.5rem;
+            text-align: left;
+        }
+
+        .section-tag {
+            font-size: 0.8rem;
+            font-weight: 600;
+            letter-spacing: 3px;
+            color: #a8e063;
+            margin-bottom: 1rem;
+            opacity: 0.7;
+        }
+
+        /* Judul yang Menusuk Fakta & Pendek */
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2.5rem, 5vw, 4.5rem);
+            line-height: 1.1;
+            color: #ffffff;
+            font-weight: 700;
+        }
+
+        .section-title span {
+            color: #f75c5c; /* Warna merah luka untuk penegas kehancuran */
+            display: block; /* Turun ke bawah biar dramatis potongannya */
+        }
+
+        /* Layout Narasi Dua Kolom ala Majalah Berita Premium */
+        .editorial-grid {
+            display: grid;
+            grid-template-columns: 1.2fr 1fr;
+            gap: 4rem;
+            margin-bottom: 5rem;
+            align-items: start;
+        }
+
+        /* Kolom Utama (Teks Lebih Besar) */
+        .narrative-lead {
+            font-size: 1.35rem;
+            line-height: 1.6;
+            color: #ffffff;
+            font-weight: 300;
+        }
+
+        /* Kolom Pendukung (Teks Lebih Rapat) */
+        .narrative-body {
+            font-size: 1.05rem;
+            line-height: 1.8;
+            color: #a3b8a5;
+            font-weight: 300;
+            text-align: justify;
+        }
+
+        .narrative-body strong {
+            color: #f75c5c; /* Angka krusial kita kasih highlight merah tipis */
+            font-weight: 600;
+        }
+
+        /* Font gaya majalah untuk seluruh narasi */
+        .editorial-grid p, .editorial-grid strong {
+            font-family: 'Inter', serif !important;
+            font-weight: 400; /* Biar ga ketebelan pas dibaca */
+        }
+
+        /* Bingkai Tableau dengan Efek Cahaya Belakang (Ambient Glow) biar Mewah */
+        .tableau-ambient-box {
+            position: relative;
+            background: rgba(255, 255, 255, 0.01);
+            border-radius: 24px;
+            padding: 24px;
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.8), 
+                        inset 0 1px 0 rgba(255, 255, 255, 0.1);
+        }
+
+        /* Pembungkus Dalam Tableau */
+        .tableau-wrapper {
+            width: 100%;
+            overflow-x: auto;
+            border-radius: 12px;
+        }
+
+        /* Responsive untuk Layar Tablet/HP */
+        @media (max-width: 968px) {
+            .editorial-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+            .content-section {
+                padding: 5rem 5%;
+            }
+        }
+
+        /* === COMPLICATION SECTION === */
+        .complication-section {
+            padding: 8rem 8%;
+            /* Latar lebih gelap untuk eskalasi tensi cerita */
+            background: linear-gradient(to bottom, #050b07 0%, #0a0505 100%);
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Garis vertikal merah tipis untuk tema Complication */
+        .complication-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 5%;
+            width: 1px;
+            height: 100%;
+            background: linear-gradient(to bottom, transparent, rgba(247, 92, 92, 0.4), transparent);
+        }
+
+        /* Konsep Bento Cards (Terinspirasi image_bb5083.png) */
+        .bento-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 5rem;
+        }
+
+        .bento-card {
+            background: rgba(20, 10, 10, 0.6);
+            border: 1px solid rgba(247, 92, 92, 0.2);
+            padding: 2.5rem 2rem;
+            border-radius: 16px;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .bento-card:hover {
+            transform: translateY(-10px);
+            border-color: rgba(247, 92, 92, 0.6);
+            background: rgba(30, 15, 15, 0.8);
+            box-shadow: 0 15px 30px rgba(247, 92, 92, 0.1);
+        }
+
+        /* Aksen garis atas pada card */
+        .bento-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: #f75c5c;
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.4s ease;
+        }
+        .bento-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .card-icon {
+            width: 48px;
+            height: 48px;
+            background: rgba(247, 92, 92, 0.1);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+            color: #f75c5c;
+        }
+
+        .card-icon svg {
+            width: 24px;
+            height: 24px;
+        }
+
+        .bento-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: #ffffff;
+        }
+
+        .bento-desc {
+            font-size: 0.95rem;
+            line-height: 1.6;
+            color: #b0a0a0;
+            font-weight: 300;
+        }
+
+        /* Kontainer Tableau Alert (Terinspirasi image_bb506b.png) */
+        .alert-banner {
+            background: radial-gradient(circle at top right, #2b0f0f 0%, #110505 100%);
+            border: 1px solid #4a1c1c;
+            border-radius: 24px;
+            padding: 3rem;
+            position: relative;
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.8);
+        }
+
+        .alert-heading {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 2rem;
+        }
+
+        .alert-badge {
+            background: #f75c5c;
+            color: #110505;
+            padding: 5px 12px;
+            border-radius: 8px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .alert-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+
+    <section class="hero">
+        <header class="nav-header">
+            <div class="logo">Forestory.</div>
+            <nav class="nav-links">
+                <a href="#situation">Situation</a>
+                <a href="#complication">Complication</a>
+                <a href="#resolution">Resolution</a>
+            </nav>
+        </header>
+
+        <div class="hero-content">
+            <h1 class="hero-title">Benteng Hijau yang <span>Terkikis.</span></h1>
+            <p class="hero-subtitle">
+                Membongkar realitas hilangnya tutupan hutan primer di wilayah adat Papua Selatan era 2015–2020, sebelum ekspansi masif Proyek Strategis Nasional dimulai.
+            </p>
+
+            <div class="data-cards">
+                <div class="card">
+                    <div class="card-label">Akumulasi Deforestasi</div>
+                    <div class="card-value">99K <span class="card-unit">Ha</span></div>
+                </div>
+                <div class="card">
+                    <div class="card-label">Area Konsesi Korporasi</div>
+                    <div class="card-value">83K <span class="card-unit">Ha</span></div>
+                </div>
+                <div class="card">
+                    <div class="card-label">Zona Kritis Utama</div>
+                    <div class="card-value" style="font-size: 1.8rem; margin-top: 10px;">Merauke</div>
+                </div>
+            </div>
+
+            <button class="cta-button" onclick="scrollToReport()">
+                Eksplorasi Laporan
+                <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
+                </svg>
+            </button>
+        </div>
+    </section>
+
+    <section id="situation" class="content-section">
+        <div class="section-container">
+            
+            <div class="story-header">
+                <div class="section-tag">01 / SITUATION</div>
+                <h1 class="section-title">Selatan Papua <span>Dikunci Industri.</span></h1>
+            </div>
+            
+            <div class="editorial-grid">
+                <div class="narrative-lead">
+                    <p>
+                        Papua sering diglorifikasi sebagai paru-paru hijau Nusantara yang tak tersentuh. Namun, data satelit membongkar anomali fatal di benteng selatan: jauh sebelum megaproyek pangan negara pancangkan fondasinya, gergaji korporasi telah merobek ruang hidup purba di Provinsi Papua Selatan ini dalam senyap.
+                    </p>
+                </div>
+                <div class="narrative-body">
+                    <p>
+                        Sepanjang era baseline 2015–2020, lanskap hijau Papua Selatan telah diamputasi seluas <strong>99.613 hektar</strong>. Saat narasi publik sering mengambinghitamkan peladangan tradisional masyarakat adat, angka memuntahkan fakta yang jauh lebih kelam: <strong>83,7% dari kehancuran total tersebut (83.451 Ha) dikomandoi langsung oleh konsesi industri skala besar</strong>. Ini bukan sekadar angka deforestasi; ini adalah bukti nyata pengkaplingan sistematis atas nama pertumbuhan ekonomi—<strong>sebuah komplikasi mendalam yang polanya terekam jelas berdasarkan aktor industri penggerak (drivers) utama dari tahun ke tahun.</strong>
+                    </p>
+                </div>
+            </div>
+
+            <!-- Bagian Embed Tableau Baru kamu yang sudah sinkron -->
+            <div class="tableau-ambient-box">
+                <div class="tableau-wrapper">
+                    <div class='tableauPlaceholder' id='viz1781671562835' style='position: relative; margin: 0 auto;'>
+                        <noscript>
+                            <a href='#'>
+                                <img alt='Dashboard Situation ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Si&#47;Situation_17816706470560&#47;DashboardSituation&#47;1_rss.png' style='border: none' />
+                            </a>
+                        </noscript>
+                        <object class='tableauViz' style='display:none;'>
+                            <param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> 
+                            <param name='embed_code_version' value='3' /> 
+                            <param name='site_root' value='' />
+                            <param name='name' value='Situation_17816706470560&#47;DashboardSituation' />
+                            <param name='tabs' value='no' />
+                            <param name='toolbar' value='yes' />
+                            <param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Si&#47;Situation_17816706470560&#47;DashboardSituation&#47;1.png' /> 
+                            <param name='animate_transition' value='yes' />
+                            <param name='display_static_image' value='yes' />
+                            <param name='display_spinner' value='yes' />
+                            <param name='display_overlay' value='yes' />
+                            <param name='display_count' value='yes' />
+                            <param name='language' value='en-US' />
+                            <param name='filter' value='publish=yes' />
+                        </object>
+                    </div>
+                    <script type='text/javascript'>
+                        var divElement = document.getElementById('viz1781671562835');
+                        var vizElement = divElement.getElementsByTagName('object')[0];
+                        vizElement.style.width='100%';
+                        vizElement.style.maxWidth='1304px';
+                        vizElement.style.height='1473px';
+                        var scriptElement = document.createElement('script');
+                        scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';
+                        vizElement.parentNode.insertBefore(scriptElement, vizElement);
+                    </script>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <section id="complication" class="complication-section">
+        <div class="section-container">
+            
+            <div class="story-header">
+                <div class="section-tag" style="color: #f75c5c;">02 / COMPLICATION</div>
+                <h1 class="section-title">Tren Fluktuasi & <span>Ancaman yang Kembali.</span></h1>
+            </div>
+
+            <!-- Bento Cards Narrative: Bersih, Mengalir, Tanpa Label Kaku -->
+            <div class="bento-grid">
+                
+                <!-- Card 1: Dominasi Sektor -->
+                <div class="bento-card">
+                    <div class="card-icon">
+                        <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 17h2c.6 0 1-.4 1-1v-3c0-.9-.7-1.7-1.5-1.9C18.7 10.6 16 10 16 10s-1.3-1.4-2.2-2.3c-.5-.4-1.1-.7-1.8-.7H5c-1.1 0-2 .9-2 2v10h2a3 3 0 106 0h2a3 3 0 106 0z"></path></svg>
+                    </div>
+                    <h3 class="bento-title">37,38% Agribisnis</h3>
+                    <p class="bento-desc">
+                        Sektor <em>Permanent Agriculture</em> menjadi aktor utama yang meratakan 207.054 Ha hutan primer. Perusakan ini bersifat permanen karena vegetasi asli digantikan sepenuhnya oleh komoditas monokultur.
+                    </p>
+                </div>
+
+                <!-- Card 2: Puncak Krisis Historis -->
+                <div class="bento-card">
+                    <div class="card-icon">
+                        <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path></svg>
+                    </div>
+                    <h3 class="bento-title">Puncak Krisis 2016</h3>
+                    <p class="bento-desc">
+                        Grafik tahunan merekam lonjakan ekstrem hingga <strong>33.350 Ha</strong> dalam setahun. Angka ini menjadi bukti sejarah laju pembukaan lahan paling agresif yang polanya terlihat pekat pada matriks <em>heatmap</em>.
+                    </p>
+                </div>
+
+                <!-- Card 3: WARNING REBOUND 2025 (Tetap dengan Aksen Merah) -->
+                <div class="bento-card" style="border: 2px solid #f75c5c; background: rgba(247, 92, 92, 0.03);">
+                    <div class="card-icon" style="color: #f75c5c;">
+                        <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path></svg>
+                    </div>
+                    <h3 class="bento-title" style="color: #f75c5c;">Alarm Bahaya 2025!</h3>
+                    <p class="bento-desc">
+                        Setelah sempat landai ke 1.520 Ha di 2023, tren mendadak <span style="color: #f75c5c; font-weight: bold;">naik tajam ke 10.882 Ha</span>. Ini adalah sinyal kritis jebolnya sistem proteksi sekaligus dimulainya babak baru deforestasi masif.
+                    </p>
+                </div>
+                
+            </div>
+
+            <!-- Alert Banner dengan Embed Tableau -->
+            <div class="alert-banner" style="margin-top: 40px;">
+                <div class="alert-heading">
+                    <span class="alert-badge">Visualisasi Dinamika</span>
+                    <h3 class="alert-title">Matriks Intensitas & Tren Fluktuasi Deforestasi Papua Selatan</h3>
+                </div>
+
+                <div class="tableau-wrapper">
+                    <div class='tableauPlaceholder' id='viz1781680044572' style='position: relative; margin: 0 auto;'>
+                        <noscript>
+                            <a href='#'><img alt='Dashboard Complication ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Co&#47;Complication&#47;DashboardComplication&#47;1_rss.png' style='border: none' /></a>
+                        </noscript>
+                        <object class='tableauViz' style='display:none;'>
+                            <param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> 
+                            <param name='embed_code_version' value='3' /> 
+                            <param name='site_root' value='' />
+                            <param name='name' value='Complication&#47;DashboardComplication' />
+                            <param name='tabs' value='no' />
+                            <param name='toolbar' value='yes' />
+                            <param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Co&#47;Complication&#47;DashboardComplication&#47;1.png' /> 
+                            <param name='animate_transition' value='yes' />
+                            <param name='display_static_image' value='yes' />
+                            <param name='display_spinner' value='yes' />
+                            <param name='display_overlay' value='yes' />
+                            <param name='display_count' value='yes' />
+                            <param name='language' value='en-US' />
+                        </object>
+                    </div>                
+                    <script type='text/javascript'>                    
+                        var divElement = document.getElementById('viz1781680044572');                    
+                        var vizElement = divElement.getElementsByTagName('object')[0];                    
+                        vizElement.style.width='100%';
+                        vizElement.style.maxWidth='1304px';
+                        vizElement.style.height='1473px';                    
+                        var scriptElement = document.createElement('script');                    
+                        scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';                    
+                        vizElement.parentNode.insertBefore(scriptElement, vizElement);                
+                    </script>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <section id="resolution" class="resolution-section" style="background: linear-gradient(to bottom, #0a0505 0%, #0d1a11 100%); padding: 8rem 8%; font-family: 'Inter', sans-serif; position: relative;">
+        <div class="section-container" style="max-width: 1304px; margin: 0 auto; position: relative; z-index: 2;">
+            
+            <!-- Header Section -->
+            <div class="story-header" style="margin-bottom: 3.5rem;">
+                <div class="section-tag" style="color: #a8e063; font-weight: 600; letter-spacing: 3px; font-size: 0.8rem; margin-bottom: 1rem; opacity: 0.7;">03 / RESOLUTION</div>
+                <h1 class="section-title" style="font-family: 'Playfair Display', serif; font-size: clamp(2.5rem, 5vw, 4.5rem); line-height: 1.1; color: #ffffff; font-weight: 700;">Evaluasi Kebijakan & <span style="color: #a8e063; display: block;">Arah Solusi Digital.</span></h1>
+            </div>
+
+            <!-- 1. Hero Metrics Row (Inspirasi Layout image_9808de.jpg dengan Foto Overlay) -->
+            <div class="metrics-row" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 24px; margin-bottom: 50px;">
+                
+                <!-- Card 1 -->
+                <div class="metric-card-premium" style="position: relative; height: 380px; border-radius: 24px; overflow: hidden; border: 1px solid rgba(255, 255, 255, 0.12); box-shadow: 0 20px 40px rgba(0,0,0,0.4);">
+                    <div style="position: absolute; inset: 0; background: url('assets/images/forest-save.jpg') center/cover no-repeat;"></div>
+                    <div style="position: absolute; inset: 0; background: linear-gradient(to bottom, rgba(13, 26, 17, 0.2) 0%, rgba(5, 11, 7, 0.95) 100%);"></div>
+                    <div style="position: absolute; bottom: 0; left: 0; width: 100%; padding: 2.5rem 2rem; box-sizing: border-box;">
+                        <span style="display: block; font-family: 'Playfair Display', serif; font-size: 3rem; font-weight: 700; color: #a8e063; margin-bottom: 0.5rem;">-57.9%</span>
+                        <span style="display: block; font-size: 1.05rem; color: #ffffff; font-weight: 600; margin-bottom: 0.5rem;">Efektivitas Kebijakan</span>
+                        <p style="font-size: 0.88rem; color: #a3b8a5; line-height: 1.5; margin: 0;">Penurunan rata-rata deforestasi tahunan pada periode moratorium resmi.</p>
+                    </div>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="metric-card-premium" style="position: relative; height: 380px; border-radius: 24px; overflow: hidden; border: 1px solid rgba(255, 255, 255, 0.12); box-shadow: 0 20px 40px rgba(0,0,0,0.4);">
+                    <div style="position: absolute; inset: 0; background: url('assets/images/papua-nature.jpg') center/cover no-repeat;"></div>
+                    <div style="position: absolute; inset: 0; background: linear-gradient(to bottom, rgba(13, 26, 17, 0.2) 0%, rgba(5, 11, 7, 0.95) 100%);"></div>
+                    <div style="position: absolute; bottom: 0; left: 0; width: 100%; padding: 2.5rem 2rem; box-sizing: border-box;">
+                        <span style="display: block; font-family: 'Playfair Display', serif; font-size: 3rem; font-weight: 700; color: #a8e063; margin-bottom: 0.5rem;">226.1 <span style="font-size: 1.5rem; font-family: 'Inter', sans-serif;">Ha/Tahun</span></span>
+                        <span style="display: block; font-size: 1.05rem; color: #ffffff; font-weight: 600; margin-bottom: 0.5rem;">Hutan Diselamatkan</span>
+                        <p style="font-size: 0.88rem; color: #a3b8a5; line-height: 1.5; margin: 0;">Rata-rata volume kehilangan tutupan pohon yang berhasil ditekan per tahun.</p>
+                    </div>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="metric-card-premium" style="position: relative; height: 380px; border-radius: 24px; overflow: hidden; border: 1px solid rgba(255, 255, 255, 0.12); box-shadow: 0 20px 40px rgba(0,0,0,0.4);">
+                    <div style="position: absolute; inset: 0; background: url('assets/images/deforestation-aerial.jpg') center/cover no-repeat;"></div>
+                    <div style="position: absolute; inset: 0; background: linear-gradient(to bottom, rgba(13, 26, 17, 0.2) 0%, rgba(5, 11, 7, 0.95) 100%);"></div>
+                    <div style="position: absolute; bottom: 0; left: 0; width: 100%; padding: 2.5rem 2rem; box-sizing: border-box;">
+                        <span style="display: block; font-family: 'Playfair Display', serif; font-size: 3rem; font-weight: 700; color: #ffffff; margin-bottom: 0.5rem;">207K <span style="font-size: 1.5rem; font-family: 'Inter', sans-serif;">Ha</span></span>
+                        <span style="display: block; font-size: 1.05rem; color: #ffffff; font-weight: 600; margin-bottom: 0.5rem;">Beban Akumulatif</span>
+                        <p style="font-size: 0.88rem; color: #a3b8a5; line-height: 1.5; margin: 0;">Total akumulasi kehilangan tutupan hutan primer sejak tahun 2002.</p>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- 2. Split Content Layout -->
+            <div class="split-content-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px; margin-bottom: 50px; align-items: start;">
+                
+                <!-- Kolom Kiri -->
+                <div class="data-analysis-text" style="border-left: 3px solid rgba(168, 224, 99, 0.4); padding-left: 25px;">
+                    <h3 style="font-size: 1.2rem; color: #ffffff; margin-bottom: 12px; font-weight: 700;">Telaah Capaian Moratorium</h3>
+                    <p style="color: #a3b8a5; line-height: 1.7; font-size: 0.95rem; margin-bottom: 15px; text-align: justify;">
+                        Berdasarkan rekaman <em>Area Chart</em>, kebijakan pengetatan izin pasca-2019 sukses menciptakan kelandaian grafik yang signifikan. Rata-rata kerusakan ditekan dari <strong>390,6 Ha/tahun</strong> menjadi <strong>164,6 Ha/tahun</strong>. 
+                    </p>
+                    <p style="color: #a3b8a5; line-height: 1.7; font-size: 0.95rem; text-align: justify;">
+                        Namun, rem kebijakan ini belum mampu menghentikan total deforestasi sepenuhnya. Angka akumulatif tetap bergerak naik, dan indikasi peningkatan kembali di ujung tahun 2025 menjadi bukti nyata bahwa ancaman belum mereda.
+                    </p>
+                </div>
+
+                <!-- Kolom Kanan -->
+                <div class="solution-focus-box" style="background: rgba(20, 10, 10, 0.6); border: 1px solid rgba(247, 92, 92, 0.2); border-top: 4px solid #f75c5c; padding: 30px; border-radius: 12px;">
+                    <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 15px;">
+                        <div style="color: #f75c5c; width: 24px; height: 24px;">
+                            <svg fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 002-2H3a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+                        </div>
+                        <h3 style="font-size: 1.1rem; color: #f75c5c; font-weight: 700; margin: 0;">Rekomendasi Utama</h3>
+                    </div>
+                    <p style="color: #b0a0a0; line-height: 1.6; font-size: 0.9rem; margin: 0; text-align: justify;">
+                        Kebijakan moratorium pasif terbukti mulai menghadapi batas efektivitasnya di tahun 2025. Diperlukan lompatan dari sekadar regulasi di atas kertas menjadi <strong>Sistem Pemantauan Digital Aktif berbasis Web</strong> guna memastikan keterbukaan data konsesi dan mencegah tumpang tindih lahan secara riil.
+                    </p>
+                </div>
+
+            </div>
+
+            <!-- 3. Tableau Embedding Box -->
+            <div class="tableau-ambient-box" style="position: relative; background: rgba(255, 255, 255, 0.01); border-radius: 24px; padding: 24px; border: 1px solid rgba(255, 255, 255, 0.06); box-shadow: 0 30px 60px rgba(0, 0, 0, 0.8), inset 0 1px 0 rgba(255, 255, 255, 0.1);">
+                <div class="tableau-wrapper" style="width: 100%; overflow-x: auto; border-radius: 12px;">
+                    <div class='tableauPlaceholder' id='viz1781681702604' style='position: relative; margin: 0 auto;'>
+                        <noscript>
+                            <a href='#'>
+                                <img alt='Dashboard Resolution ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Ev&#47;EvaluasiKebijakanTataRuangAnalisisEfektivitasMoratoriumLajuDeforestasi&#47;DashboardResolution&#47;1_rss.png' style='border: none' />
+                            </a>
+                        </noscript>
+                        <object class='tableauViz' style='display:none;'>
+                            <param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> 
+                            <param name='embed_code_version' value='3' /> 
+                            <param name='site_root' value='' />
+                            <param name='name' value='EvaluasiKebijakanTataRuangAnalisisEfektivitasMoratoriumLajuDeforestasi&#47;DashboardResolution' />
+                            <param name='tabs' value='no' />
+                            <param name='toolbar' value='yes' />
+                            <param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Ev&#47;EvaluasiKebijakanTataRuangAnalisisEfektivitasMoratoriumLajuDeforestasi&#47;DashboardResolution&#47;1.png' /> 
+                            <param name='animate_transition' value='yes' />
+                            <param name='display_static_image' value='yes' />
+                            <param name='display_spinner' value='yes' />
+                            <param name='display_overlay' value='yes' />
+                            <param name='display_count' value='yes' />
+                            <param name='language' value='en-US' />
+                        </object>
+                    </div>
+                    <script type='text/javascript'>
+                        var divElement = document.getElementById('viz1781681702604');
+                        var vizElement = divElement.getElementsByTagName('object')[0];
+                        vizElement.style.width='100%';
+                        vizElement.style.maxWidth='1304px';
+                        vizElement.style.height='1473px';
+                        var scriptElement = document.createElement('script');
+                        scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';
+                        vizElement.parentNode.insertBefore(scriptElement, vizElement);
+                    </script>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- FOOTER ONLY -->
+    <footer id="closing-footer" style="background: #050b07; padding: 4rem 8% 3rem 8%; font-family: 'Inter', sans-serif;">
+        <div class="footer-container" style="max-width: 1304px; margin: 0 auto;">
+            
+            <!-- Footer Identitas Kelompok -->
+            <div class="footer-bottom" style="display: flex; justify-content: space-between; align-items: center; border-top: 1px solid rgba(255, 255, 255, 0.05); padding-top: 2rem; flex-wrap: wrap; gap: 15px;">
+                <p style="color: #617564; font-size: 0.85rem; margin: 0;">&copy; 2026 Analisis Efektivitas Moratorium Laju Deforestasi Papua Selatan.</p>
+                <p style="color: #a8e063; font-size: 0.9rem; margin: 0; font-weight: 700; letter-spacing: 1px;">Data Visualisasi A - Kelompok 18</p>
+            </div>
+
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scroll logic untuk tombol CTA
+        function scrollToReport() {
+            document.getElementById('situation').scrollIntoView({ 
+                behavior: 'smooth' 
+            });
+        }
+    </script>
+
+</body>
+</html>
